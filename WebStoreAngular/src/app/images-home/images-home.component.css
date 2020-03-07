@@ -1,0 +1,8 @@
+.jumbotron {
+    background-image: url("https://img.moyo.ua/img/posters/1637_1582879890.jpg");
+    background-size: cover;
+    height: 350px;
+  }
+  .mt-0 {
+    margin-top: 0 !important;
+  }

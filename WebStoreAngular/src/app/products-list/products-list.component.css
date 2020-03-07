@@ -1,0 +1,8 @@
+.example-card {
+    max-width: 150px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://img.moyo.ua/img/products/4585/62_1500.jpg');
+    background-size: cover;
+  }

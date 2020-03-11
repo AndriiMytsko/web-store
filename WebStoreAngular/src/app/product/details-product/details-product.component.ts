@@ -10,14 +10,17 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./details-product.component.css']
 })
 export class DetailsProductComponent implements OnInit {
-
   id: number;
-  private subscription: Subscription;
-  constructor(private activateRoute: ActivatedRoute){
-       
-      this.subscription = activateRoute.params.subscribe(params=>this.id=params['id']);
-  }
+  prod: Product;
+
+  constructor(private route: ActivatedRoute,private router: Router,
+    private productservice: ProductService) { }
 
     ngOnInit() {
+      this.prod = new Product();
+  
+      this.id = this.route.snapshot.params['id'];
+      this.productservice.getProduct(this.id)
+        .subscribe(prod => this.prod = prod);
     }
 }

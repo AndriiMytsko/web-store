@@ -7,7 +7,7 @@ import { NotFoundComponent } from 'src/app/not-found/not-found.component';
 import { from } from 'rxjs';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: HomeComponent },
   { path: 'product/:id', component: DetailsProductComponent },
   { path: '**', component: NotFoundComponent },
   { path: '**', redirectTo: '/' }

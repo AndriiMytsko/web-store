@@ -33,6 +33,8 @@ import {ProductService} from 'src/app/services/product.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ImagesHomeComponent } from './images-home/images-home.component';
 import { DetailsProductComponent } from './product/details-product/details-product.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { DetailsProductComponent } from './product/details-product/details-produ
     MainNavComponent,
     ProductsListComponent,
     ImagesHomeComponent,
-    DetailsProductComponent
+    DetailsProductComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

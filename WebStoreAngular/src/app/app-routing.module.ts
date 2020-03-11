@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DetailsProductComponent } from 'src/app/product/details-product/details-product.component';
+import {HomeComponent } from 'src/app/home/home.component'; 
+import { NotFoundComponent } from 'src/app/not-found/not-found.component'; 
+
+import { from } from 'rxjs';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'products', pathMatch: 'full' },
-  { path: 'details/:id', component: DetailsProductComponent }
+  { path: '', component: HomeComponent},
+  { path: 'product/:id', component: DetailsProductComponent },
+  { path: '**', component: NotFoundComponent },
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

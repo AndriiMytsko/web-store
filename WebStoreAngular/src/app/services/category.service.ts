@@ -10,9 +10,9 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  readonly apiUrl = "http://localhost:63624/api";
+  readonly apiUrl = "http://localhost:63624/api/categories";
 
   getCategories(): Observable<Category[]>{
-    return this.http.get<Category[]>(this.apiUrl + '/categories');
+    return this.http.get<Category[]>(this.apiUrl);
   }
 }

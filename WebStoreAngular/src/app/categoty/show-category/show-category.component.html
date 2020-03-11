@@ -1,9 +1,19 @@
-<div class="container mt-2 p-3 text-primary">
-  <button type="button" class="btn btn-primary active" mat-button [matMenuTriggerFor]="menu">Category</button>
-  <mat-menu #menu="matMenu">
-    <div *ngFor="let category of categories">
-      <a class="dropdown-item" href="#">{{category.name}}</a>
-    </div>
-  </mat-menu>
+<div class="container">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Посилання -->
+    <ul class="navbar-nav">
+      <!-- Випадайка 1 -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Category
+        </a>
+        <div class="dropdown-menu">
+         <div *ngFor="let category of categories">
+           <a routerLink="{{category.name}}" class="dropdown-item">{{category.name}}</a>
+         </div>
+        </div>
+      </li>
+    </ul>
+   </nav>
 </div>
-
+<br>

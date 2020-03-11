@@ -26,7 +26,6 @@ export class ProductsListComponent implements OnInit {
   product: Product;
   
   prodDetails(id: number){
-    window.location.href = '/details/3';
-    //this.router.navigate(['/details', id]);
+    this.router.navigate(['/details', id]);
   }
 }

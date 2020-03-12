@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
@@ -19,7 +19,6 @@ import { ShowCategoryComponent } from './categoty/show-category/show-category.co
 import { EditCategoryComponent } from './categoty/edit-category/edit-category.component';
 import { AddCategoryComponent } from './categoty/add-category/add-category.component';
 import { ProductComponent } from './product/product.component';
-import { ShowProductComponent } from './product/show-product/show-product.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
@@ -27,7 +26,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { ProductsListComponent } from './products-list/products-list.component';
 import {CategoryService} from 'src/app/services/category.service';
 import {ProductService} from 'src/app/services/product.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -35,6 +33,8 @@ import { ImagesHomeComponent } from './images-home/images-home.component';
 import { DetailsProductComponent } from './product/details-product/details-product.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { TopProductsComponent } from './top-products/top-products.component';
 
 @NgModule({
   declarations: [
@@ -44,15 +44,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EditCategoryComponent,
     AddCategoryComponent,
     ProductComponent,
-    ShowProductComponent,
     EditProductComponent,
     AddProductComponent,
     MainNavComponent,
-    ProductsListComponent,
     ImagesHomeComponent,
     DetailsProductComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductListComponent,
+    TopProductsComponent
   ],
   imports: [
     BrowserModule,

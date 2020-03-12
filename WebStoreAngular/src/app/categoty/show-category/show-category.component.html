@@ -1,19 +1,22 @@
 <div class="container">
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <!-- Посилання -->
-    <ul class="navbar-nav">
-      <!-- Випадайка 1 -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          Category
-        </a>
-        <div class="dropdown-menu">
-         <div *ngFor="let category of categories">
-           <a routerLink="{{category.name}}" class="dropdown-item">{{category.name}}</a>
-         </div>
-        </div>
-      </li>
-    </ul>
-   </nav>
+  <div class="row">
+    <div class="col-3">
+      <nav class="navbar navbar-expand-sm">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+              Category
+            </a>
+            <div class="dropdown-menu">
+             <div *ngFor="let category of categories">
+               <a routerLink="{{category.name}}" class="dropdown-item" (click)="productsByCategory(category.id)">{{category.name}}</a>
+             </div>
+            </div>
+          </li>
+        </ul>
+       </nav>
+    </div>
+  </div>
 </div>
 <br>

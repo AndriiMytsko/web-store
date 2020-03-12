@@ -1,0 +1,16 @@
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="space-between">
+  <div *ngFor="let prod of products">
+    <div>
+      <img srcset="https://img.moyo.ua/img/products/2797/54_200.jpg 2x">
+    </div>
+    <br>
+    <p>
+      {{prod.name}}
+    </p>
+    <br>
+    <p>
+      Price: {{prod.price}}
+    </p>
+    <button (click)="prodDetails(prod.id)" style="margin-left: 10px">Details</button>
+  </div>
+</div>

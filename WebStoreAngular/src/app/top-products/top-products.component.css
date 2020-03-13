@@ -1,0 +1,18 @@
+p{
+  color: #34495e;
+  font-family: Helvetica, Arial, sans-serif;
+}
+#product_title{
+  color: #34495e;
+  font-size: 24px;
+  font-weight: 700;
+}
+#buy{
+  background-color: #65c000;
+}
+#buyOneClick{
+  background-color: #34495e;
+}
+h3{
+  color: aliceblue;
+}

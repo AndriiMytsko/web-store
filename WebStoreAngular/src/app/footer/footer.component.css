@@ -1,0 +1,10 @@
+p{
+    color: rgb(255, 255, 255);
+}
+
+h3, h5, span{
+    color: rgb(255, 255, 255);
+}
+li{
+    list-style: none;
+}

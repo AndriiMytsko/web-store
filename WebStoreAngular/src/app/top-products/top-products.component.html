@@ -1,16 +1,27 @@
+<div class="container my-3" id="product_title">
+  Top products
+</div>
+
 <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="space-between">
   <div *ngFor="let prod of products">
-    <div>
-      <img srcset="https://img.moyo.ua/img/products/2797/54_200.jpg 2x">
-    </div>
-    <br>
-    <p>
-      {{prod.name}}
-    </p>
-    <br>
-    <p>
-      Price: {{prod.price}}
-    </p>
-    <button (click)="prodDetails(prod.id)" style="margin-left: 10px">Details</button>
+    <a (click)="prodDetails(prod.id)">
+      <div class="card" style="width: 10rem; border: none">
+        <img srcset="https://img.moyo.ua/img/products/2797/54_200.jpg">
+        <div class="card-body">
+          <h5 class="card-title my-3">{{prod.name}}</h5>
+          <p class="card-text mt-5">Price: {{prod.price}}</p>
+        </div>
+        <div class="card-body">
+          <div fxLayout="row" >
+            <div id="buy" fxFlex="60">
+              <h3>Buy</h3>
+            </div>
+            <div id="buyOneClick" fxFlex="40"> 
+              <h5>Buy in 1 click</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Product } from 'src/app/models/product-model';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -10,15 +10,15 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategotyComponent implements OnInit {
 
-  id: number;
   products: Product[];
 
   constructor(private route: ActivatedRoute,private router: Router,
     private categoryService: CategoryService) { }
 
     ngOnInit() {
-      this.id = this.route.snapshot.params['id'];
-      this.categoryService.getProductsByCategory(this.id)
-        .subscribe(products => this.products = products);
+      this.route.params.subscribe((params: Params) => {
+        this.categoryService.getProductsByCategory(params.id)
+          .subscribe(products => this.products = products);
+      });      
     }
 }

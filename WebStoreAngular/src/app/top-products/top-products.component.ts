@@ -17,7 +17,9 @@ export class TopProductsComponent implements OnInit {
 
 
   ngOnInit() : void{
-    this.service.getTopProducts().subscribe(products => this.products = products);
+    this.service.getTopProducts().subscribe(products => {
+      this.products = products;
+    });
   }
 
   onEdit(product: Product){

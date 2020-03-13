@@ -1,9 +1,11 @@
-.dropdown:hover>.dropdown-menu{
+.dropdown:hover>
+.dropdown-menu{
     display:block;
 }
 .col-3{
     background-color: #019fff;
 }
-a{
-    color: #ffffff;
+
+li{
+    color: rgb(52, 73, 94);;
 }

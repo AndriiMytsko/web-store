@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import * as platformBrowser from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { MatMenuModule } from '@angular/material/menu';
@@ -35,6 +35,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { TopProductsComponent } from './top-products/top-products.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -52,10 +53,11 @@ import { TopProductsComponent } from './top-products/top-products.component';
     HomeComponent,
     NotFoundComponent,
     ProductListComponent,
-    TopProductsComponent
+    TopProductsComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule,
+    platformBrowser.BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,

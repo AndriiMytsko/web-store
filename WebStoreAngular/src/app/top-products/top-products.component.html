@@ -2,7 +2,7 @@
   Top products
 </div>
 
-<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="space-between">
+<div class="container" fxLayout fxLayout.xs="column">
   <div *ngFor="let prod of products">
     <a (click)="prodDetails(prod.id)">
       <div class="card" style="width: 10rem; border: none">

@@ -1,11 +1,37 @@
-.dropdown:hover>
-.dropdown-menu{
-    display:block;
+.dropdown:hover>.dropdown-menu {
+    display: block;
 }
+
+  
 .col-3{
-    background-color: #019fff;
+    background-color: #00bcf1;
 }
 
 li{
     color: rgb(52, 73, 94);;
+}
+
+#category-menu{
+    color: white;
+    font-size: 30px;
+}
+
+#navbardrop{
+    color: cornsilk;
+}
+
+#dropdownMenuButton {
+    background-color: #00bcf1;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.dropdown-menu{
+    margin: 0;
+    border-radius: 0%;
+}
+hr{
+    margin: 0;
+    margin-left: 20px;
 }

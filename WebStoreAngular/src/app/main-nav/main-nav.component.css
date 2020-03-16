@@ -1,11 +1,19 @@
+.navbar-custom {
+  background-color: white;
+}
 input {
-    background-color: #fff;
-    height: 40px;
-    }
+  background-color: #fff;
+  height: 40px;
+}
 h4 {
-    color:#00bcf1;
-  }
-
+  color:#00bcf1;
+}
 i{
-    color: #00bcf1;   
-   }
+  color: #00bcf1;   
+}
+.form-control{
+  border-radius: 0%;
+}
+.mb-5, .my-5 {
+  margin-bottom: 0%!important;
+}

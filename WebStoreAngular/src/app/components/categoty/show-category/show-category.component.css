@@ -2,6 +2,9 @@
     display: block;
 }
 
+.dropdown{
+    cursor: pointer;
+}
   
 .col-3{
     background-color: #00bcf1;
@@ -34,4 +37,8 @@ li{
 hr{
     margin: 0;
     margin-left: 20px;
+}
+
+a:active {
+    background-color: #f8f9fa;
 }

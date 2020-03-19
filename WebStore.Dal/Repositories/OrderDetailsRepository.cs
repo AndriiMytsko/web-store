@@ -19,7 +19,7 @@ namespace WebStore.Dal.Repositories
             _connection = conn;
         }
 
-        public async Task CreateAsync(OrderDetails orderDetails)
+        public async Task CreateAsync(IEnumerable<OrderDetails> orderDetails)
         {
             using (IDbConnection db = GetConnection())
             {

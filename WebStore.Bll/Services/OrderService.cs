@@ -36,7 +36,7 @@ namespace WebStore.Bll.Services
 
             return order;
         }
-        
+
         public async Task<IEnumerable<OrderDetailsDto>> GetOrderWithProductsAsync(int id)
         {
             var entity = await _orderRepository.GetOrderWithProductsAsync(id);
@@ -56,7 +56,7 @@ namespace WebStore.Bll.Services
         public async Task UpdateAsync(OrderDto dto)
         {
             var entity = await _orderRepository.GetAsync(dto.Id);
-
+         
             await _orderRepository.UpdateAsync(entity);
         }
 

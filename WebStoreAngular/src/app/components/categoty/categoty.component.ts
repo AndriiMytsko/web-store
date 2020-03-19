@@ -21,4 +21,8 @@ export class CategotyComponent implements OnInit {
           .subscribe(products => this.products = products);
       });      
     }
+
+    prodDetails(id: number){
+      this.router.navigate(['/product', id]);
+   }
 }

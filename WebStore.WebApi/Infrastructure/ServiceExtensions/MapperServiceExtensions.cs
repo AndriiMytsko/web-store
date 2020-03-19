@@ -11,7 +11,6 @@ namespace WebStore.WebApi.Infrastructure.ServiceExtensions
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<BllMappingProfile>();
-                cfg.AddProfile<MappingProfile>();
             });
 
             var mapper = config.CreateMapper();

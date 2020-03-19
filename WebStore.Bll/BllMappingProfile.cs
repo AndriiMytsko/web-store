@@ -13,8 +13,6 @@ namespace WebStore.Bll
             CreateMap<OrderDto, Order>().ReverseMap();
             CreateMap<OrderDetailsDto, OrderDetails>().ReverseMap();
             CreateMap<ProductDto, Product>().ReverseMap();
-
-
         }
     }
 }

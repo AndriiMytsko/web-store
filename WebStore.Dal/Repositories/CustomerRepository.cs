@@ -19,12 +19,12 @@ namespace WebStore.Dal.Repositories
             _connection = conn;
         }
 
-        public async Task CreateAsync(Customer customer)
+        public async Task CreateAsync()
         {
             using (IDbConnection db = GetConnection())
             {
                 var sqlQuery = SqlCommandCustomer.CreateCustomer;
-                await db.ExecuteAsync(sqlQuery, customer);
+                await db.ExecuteAsync(sqlQuery);
             }
         }
 
@@ -44,12 +44,12 @@ namespace WebStore.Dal.Repositories
             }
         }
 
-        public async Task UpdateAsync(Customer customer)
+        public async Task UpdateAsync(int id)
         {
             using (IDbConnection db = GetConnection())
             {
                 var sqlQuery = SqlCommandCustomer.UpdateCustomer;
-                await db.ExecuteAsync(sqlQuery, customer);
+                await db.ExecuteAsync(sqlQuery);
             }
         }
 

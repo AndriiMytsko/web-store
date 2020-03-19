@@ -40,7 +40,7 @@ namespace WebStore.WebApi.Controllers
         [HttpGet("top-products")]
         public async Task<IEnumerable<ProductDto>> GetTop()
         {
-            const int countTopProducts = 5;
+            const int countTopProducts = 6;
             return await _productService.GetTopAsync(countTopProducts);
         }
 

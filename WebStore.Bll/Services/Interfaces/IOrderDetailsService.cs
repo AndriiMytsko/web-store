@@ -6,7 +6,7 @@ namespace WebStore.Bll.Services.Interfaces
 {
     public interface IOrderDetailsService
     {
-        Task CreateAsync(OrderDetailsDto dto);
+        Task CreateAsync(int orderId, IEnumerable<int> productIds);
         Task<OrderDetailsDto> GetAsync(int id);
         Task<IEnumerable<OrderDetailsDto>> GetAllAsync();
         Task UpdateAsync(OrderDetailsDto dto);

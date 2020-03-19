@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetailsProductComponent } from 'src/app/product/details-product/details-product.component';
-import {HomeComponent } from 'src/app/home/home.component'; 
-import { NotFoundComponent } from 'src/app/not-found/not-found.component'; 
-import { CategotyComponent } from './categoty/categoty.component';
+import { DetailsProductComponent } from 'src/app/components/product/details-product/details-product.component';
+import {HomeComponent } from 'src/app/components/home/home.component'; 
+import { NotFoundComponent } from 'src/app/components/not-found/not-found.component'; 
+import { CategotyComponent } from './components/categoty/categoty.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

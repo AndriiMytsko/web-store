@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product-model';
 import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-top-products',
@@ -12,7 +13,9 @@ import { Router } from '@angular/router';
 export class TopProductsComponent implements OnInit {
   products: Product[]
 
-  constructor(private service: ProductService,
+  constructor(
+    private service: ProductService,
+    public cartService: CartService,
     private router: Router) { }
 
 
@@ -22,13 +25,13 @@ export class TopProductsComponent implements OnInit {
     });
   }
 
-  onEdit(product: Product){
-    console.log(product)
-  }
-
   product: Product;
   
   prodDetails(id: number){
      this.router.navigate(['/product', id]);
+  }
+
+  addToCart(id: number) {
+    this.cartService.addToCart(id);
   }
 }

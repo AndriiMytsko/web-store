@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Bll.DTOs;
 using WebStore.Bll.Services.Interfaces;
-using WebStore.Dal.Entities;
 using WebStore.Dal.Repositories.Interfaces;
 
 namespace WebStore.Bll.Services
@@ -21,17 +19,6 @@ namespace WebStore.Bll.Services
         {
             _mapper = mapper;
             _orderDetailsRepository = orderDetailsRepository;
-        }
-
-        public async Task CreateAsync(int orderId, IEnumerable<int> productIds)
-        {
-            var products = productIds.Select(
-                x => new OrderDetails 
-                {
-                    ProductId = x, 
-                    OrderId = orderId 
-                }).ToList();
-            await _orderDetailsRepository.CreateAsync(products);
         }
 
         public async Task<OrderDetailsDto> GetAsync(int Id)

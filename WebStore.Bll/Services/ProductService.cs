@@ -53,6 +53,14 @@ namespace WebStore.Bll.Services
             return products;
         }
 
+        public async Task<IEnumerable<ProductDto>> GetProductsAsync(IEnumerable<int> ids)
+        {
+            var entities = await _productRepository.GetProductsAsync(ids);
+            var products = _mapper.Map<IEnumerable<ProductDto>>(entities);
+
+            return products;
+        }
+
         public async Task UpdateAsync(ProductDto dto)
         {
             var entity = await _productRepository.GetAsync(dto.Id);

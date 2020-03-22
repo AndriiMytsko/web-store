@@ -10,6 +10,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
@@ -26,8 +27,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {CategoryService} from 'src/app/services/category.service';
-import {ProductService} from 'src/app/services/product.service';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ImagesHomeComponent } from './components/images-home/images-home.component';
 import { DetailsProductComponent } from './components/product/details-product/details-product.component';
@@ -36,6 +37,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductListComponent } from './components/product/product-list/product-list.component';
 import { TopProductsComponent } from './components/top-products/top-products.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { OrderComponent } from './components/order/order.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartService } from 'src/app/services/cart.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,9 @@ import { FooterComponent } from './components/footer/footer.component';
     NotFoundComponent,
     ProductListComponent,
     TopProductsComponent,
-    FooterComponent
+    FooterComponent,
+    OrderComponent,
+    CartComponent
   ],
   imports: [
     platformBrowser.BrowserModule,
@@ -72,9 +78,10 @@ import { FooterComponent } from './components/footer/footer.component';
     MatTableModule,
     MatCardModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxDatatableModule
   ],
-  providers: [CategoryService, ProductService],
+  providers: [CategoryService, ProductService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -58,6 +58,14 @@ namespace WebStore.Dal.Repositories
             }
         }
 
+        public async Task<IEnumerable<Product>> GetProductsAsync(IEnumerable<int> ids)
+        {
+            using (IDbConnection db = GetConnection())
+            {
+                return await db.QueryAsync<Product>(SqlCommandProduct.GetProductsByCart,  new { ids });
+            }
+        }
+
         public async  Task<IEnumerable<Product>> GetAllAsync()
         {
             using (IDbConnection db = GetConnection())

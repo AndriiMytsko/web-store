@@ -3,19 +3,23 @@
 </div>
 
 <div class="container bg-light" fxLayout fxLayout.xs="column" fxLayoutAlign="space-between">
-  <div *ngFor="let prod of products">
-    <a (click)="prodDetails(prod.id)">
-      <div class="card" style="width: 10rem; border: none">
-        <img srcset="https://img.moyo.ua/img/products/2797/54_200.jpg">
-        <div class="card-body">
-          <h4 class="card-title my-3">{{prod.name}}</h4>
-          <p class="card-text mt-5">Price: {{prod.price}}</p>
+    <div class="scrolling-wrapper" >
+      <div class="card" *ngFor="let product of products" style="width: 10rem; border: none">
+        <a (click)="prodDetails(product.id)">
+          <img srcset="https://img.moyo.ua/img/products/2797/54_200.jpg">
+          <div class="card-body">
+            <h4 class="card-title my-3">{{product.name}}</h4>
+            <p class="card-text mt-5">Price: {{product.price}}</p>
+          </div>
+        </a>
+        <div class="p-0">
+          <a id="buy" fxFlex="60">
+            <h5 class="m-2" (click)="addToCart(product.id)">ADD TO CART</h5>
+          </a>
+          <a id="buyOneClick" fxFlex="40">
+            <h5>Buy in 1 click</h5>
+          </a>
         </div>
       </div>
-    </a>
-    <div class="card-body p-0">
-      <a href="/" id="buy" fxFlex="60"><h3 class="m-2">Buy</h3></a>
-      <a href="/" id="buyOneClick" fxFlex="40"><h5 class="my-0 mt-1">Buy in 1 click</h5></a>
-    </div>
   </div>
 </div>

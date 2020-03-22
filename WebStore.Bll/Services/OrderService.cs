@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Bll.DTOs;
 using WebStore.Bll.Services.Interfaces;
@@ -13,20 +14,33 @@ namespace WebStore.Bll.Services
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
+        private readonly IOrderDetailsRepository _orderDetailsRepository;
 
         public OrderService(
             IMapper mapper,
-            IOrderRepository orderRepository)
+            IOrderRepository orderRepository,
+            IOrderDetailsRepository orderDetailsRepository)
         {
             _mapper = mapper;
             _orderRepository = orderRepository;
+            _orderDetailsRepository = orderDetailsRepository;
         }
 
-        public async Task CreateAsync(OrderDto dto)
+        public async Task CreateAsync(IEnumerable<int> products)
         {
-            var entity = _mapper.Map<Order>(dto);
+            var order = new Order
+            {
+                CustomerId = 1
+            };
 
-            await _orderRepository.CreateAsync(entity);
+            await _orderRepository.CreateAsync(order);
+
+            var details = products.Select(productId => new OrderDetails
+            {
+                OrderId = order.Id,
+                ProductId = productId
+            });
+            await _orderDetailsRepository.CreateAsync(details);
         }
 
         public async Task<OrderDto> GetAsync(int Id)

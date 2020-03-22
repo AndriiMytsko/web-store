@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AutoMapper;
 using WebStore.Bll.DTOs;
 using WebStore.Bll.Services.Interfaces;
 
@@ -12,20 +11,16 @@ namespace WebStore.WebApi.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrderService _orderService;
-        private readonly IMapper _mapper;
 
-        public OrdersController(IOrderService orderService, IMapper mapper)
+        public OrdersController(IOrderService orderService)
         {
             _orderService = orderService;
-            _mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<OrderDto> Post(OrderDto order)
+        public async Task Post([FromBody]IEnumerable<int> products)
         {
-            await _orderService.CreateAsync(order);
-
-            return order;
+            await _orderService.CreateAsync(products);
         }
 
         [HttpGet]

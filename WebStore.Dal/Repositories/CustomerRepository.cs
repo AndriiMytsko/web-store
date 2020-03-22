@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Dapper;
 using WebStore.Dal.Configs;
 using WebStore.Dal.Entities;
- using WebStore.Dal.Repositories.Interfaces;
+using WebStore.Dal.Repositories.Interfaces;
 using WebStore.Dal.Repositories.SqlCommands;
 
 namespace WebStore.Dal.Repositories
@@ -19,12 +19,12 @@ namespace WebStore.Dal.Repositories
             _connection = conn;
         }
 
-        public async Task CreateAsync()
+        public async Task CreateAsync(Customer customer)
         {
             using (IDbConnection db = GetConnection())
             {
                 var sqlQuery = SqlCommandCustomer.CreateCustomer;
-                await db.ExecuteAsync(sqlQuery);
+                await db.ExecuteAsync(sqlQuery, customer);
             }
         }
 
@@ -44,12 +44,12 @@ namespace WebStore.Dal.Repositories
             }
         }
 
-        public async Task UpdateAsync(int id)
+        public async Task UpdateAsync(Customer customer)
         {
             using (IDbConnection db = GetConnection())
             {
                 var sqlQuery = SqlCommandCustomer.UpdateCustomer;
-                await db.ExecuteAsync(sqlQuery);
+                await db.ExecuteAsync(sqlQuery, customer);
             }
         }
 

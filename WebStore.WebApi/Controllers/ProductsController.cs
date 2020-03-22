@@ -24,12 +24,12 @@ namespace WebStore.WebApi.Controllers
             return product;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<ProductDto>> Get()
+        //[HttpGet]
+        //public async Task<IEnumerable<ProductDto>> Get()
 
-        {
-            return await _productService.GetAllAsync();
-        }
+        //{
+        //    return await _productService.GetAllAsync();
+        //}
 
         [HttpGet("{id}")] // productWithCategory
         public async Task<ProductDto> Get(int id)
@@ -37,10 +37,16 @@ namespace WebStore.WebApi.Controllers
             return await _productService.GetAsync(id);
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<ProductDto>> GetProducts([FromQuery]IList<int> ids)
+        {
+            return await _productService.GetProductsAsync(ids);
+        }
+
         [HttpGet("top-products")]
         public async Task<IEnumerable<ProductDto>> GetTop()
         {
-            const int countTopProducts = 6;
+            const int countTopProducts = 10;
             return await _productService.GetTopAsync(countTopProducts);
         }
 

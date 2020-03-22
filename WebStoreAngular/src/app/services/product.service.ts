@@ -24,4 +24,10 @@ export class ProductService {
   getProduct(id: number): Observable<Product> {
     return this.http.get<Product>(this.apiUrl + '/' + id);
   }
+
+  getProductsByIds(ids: number[]): Observable<Product[]> {
+    let idsQuery = ids.map(x => `ids=${x}`).join('&');
+
+    return this.http.get<Product[]>(this.apiUrl + `?${idsQuery}`);
+  }
 }

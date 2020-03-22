@@ -8,36 +8,13 @@ p{
   font-weight: 700;
 }
 
-h3{
-  color: white;
-}
-
-.card-block {
-  min-height: 20px;
-}
-
 .card{
   cursor: pointer;
-}
-a{
-  color: white;
-  text-decoration: none;
   display: inline-block;
-}
-#buy:link, #buy:visited {
-  background-color: #65c000;
-  text-align: center;
-}
+ }
 
-#buy:hover, #buy:active {
-  background-color:rgb(119, 226, 1);
-}
-
-#buyOneClick:link, #buyOneClick:visited {
-  background-color: #34495e;
-  text-align: center;
-}
-
-#buyOneClick:hover, #buyOneClick:active {
-  background-color:#4a637c;
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }

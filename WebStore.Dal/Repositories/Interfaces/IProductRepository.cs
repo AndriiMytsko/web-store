@@ -11,6 +11,7 @@ namespace WebStore.Dal.Repositories.Interfaces
         Task<Product> GetAsync(int id);
         Task<IEnumerable<Product>> GetTopAsync(int count);
         Task<IEnumerable<Product>> GetAllAsync();
+        Task<IEnumerable<Product>> GetProductsAsync(IEnumerable<int> ids);
         Task UpdateAsync(Product product);
     }
 }

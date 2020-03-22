@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Product } from 'src/app/models/product-model';
 import { CategoryService } from 'src/app/services/category.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-categoty',
@@ -12,7 +13,10 @@ export class CategotyComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private route: ActivatedRoute,private router: Router,
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private cartService: CartService,
     private categoryService: CategoryService) { }
 
     ngOnInit() {
@@ -25,4 +29,8 @@ export class CategotyComponent implements OnInit {
     prodDetails(id: number){
       this.router.navigate(['/product', id]);
    }
+
+   addToCart(id: number) {
+    this.cartService.addToCart(id);
+  }
 }

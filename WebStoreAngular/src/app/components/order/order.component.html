@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row color">
+    <div class="col-6 ">
+      <a id="buy" class="btn" (click)="create()">Make an order
+      </a>
+    </div>
+    <div class="col-6">
+      <div *ngFor="let product of products">
+        <div class="row mt-2">
+          <div class="col">
+            <p>{{product.name}}</p>
+          </div>
+          <div class="col">
+            <p>Price: {{product.price}}</p>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

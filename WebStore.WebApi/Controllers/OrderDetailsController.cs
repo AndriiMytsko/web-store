@@ -16,12 +16,6 @@ namespace WebStore.WebApi.Controllers
             _orderDetailsService = orderDetailsService;
         }
 
-        [HttpPost]
-        public async Task Post(int orderId, IEnumerable<int> productIds)
-        {
-            await _orderDetailsService.CreateAsync(orderId, productIds);
-        }
-
         [HttpGet]
         public async Task<IEnumerable<OrderDetailsDto>> Get()
         {

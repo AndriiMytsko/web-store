@@ -32,5 +32,7 @@ namespace WebStore.Dal.Repositories.SqlCommands
                                         ON od.ProductId = p.Id
                                 GROUP BY id,[Name], Price
                                 ORDER BY CountProducts DESC";
+
+        public static readonly string GetProductsByCart = "SELECT * FROM Products WHERE Id IN @ids";
     }
 }

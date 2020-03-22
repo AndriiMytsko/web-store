@@ -13,7 +13,7 @@
         public static readonly string DeleteOrderDetails = "DELETE FROM OrderDetails WHERE Id = @id";
 
 
-        public static readonly string GetOrderWithProductsAsync =  $@"
+        public static readonly string GetOrderWithProducts =  $@"
             SELECT *  FROM OrderDetails od
                 JOIN Products p 
                     ON od.ProductId = p.Id

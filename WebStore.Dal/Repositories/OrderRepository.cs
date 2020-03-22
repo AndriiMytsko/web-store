@@ -55,7 +55,7 @@ namespace WebStore.Dal.Repositories
                 try
                 {
                     var orderDetails = await db.QueryAsync<OrderDetails, Product, OrderDetails>(
-                        SqlCommandOrderDetails.GetOrderWithProductsAsync,
+                        SqlCommandOrderDetails.GetOrderWithProducts,
                         (od, product) =>
                         {
                             od.Product = product;

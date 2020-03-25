@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/services/product.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/models/product-model';
 import { OrderService } from 'src/app/services/order.service';
+import { OrderDetails } from 'src/app/models/orderdetails-model';
 
 @Component({
   selector: 'app-order',
@@ -10,23 +10,25 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  ids: number[];
+  details: OrderDetails[];
   products: Product[];
 
   constructor(
     private cartService: CartService,
-    private service: ProductService,
-    private orderService: OrderService
-  ) { }
+    private orderService: OrderService) { }
 
   ngOnInit() {
-    this.ids = this.cartService.getProductIds();
-    this.service.getProductsByIds(this.ids)
-      .subscribe(products => { this.products = products; })
+    this.cartService.getProducts()
+      .subscribe(products => { this.products = products;
+                 this.createDetails()
+      });
+  }
+
+  createDetails() {
+    this.details = this.products.map(product => new OrderDetails(product));
   }
 
   create() {
-      debugger;
-    this.orderService.create(this.ids);
+    this.orderService.create(this.details);
   }
 }

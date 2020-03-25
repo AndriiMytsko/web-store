@@ -40,6 +40,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { OrderComponent } from './components/order/order.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartService } from 'src/app/services/cart.service';
+import { AdminComponent } from './components/admin/admin.component';
+import { OrderService } from './services/order.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { CartService } from 'src/app/services/cart.service';
     TopProductsComponent,
     FooterComponent,
     OrderComponent,
-    CartComponent
+    CartComponent,
+    AdminComponent
   ],
   imports: [
     platformBrowser.BrowserModule,
@@ -81,7 +84,10 @@ import { CartService } from 'src/app/services/cart.service';
     HttpClientModule,
     NgxDatatableModule
   ],
-  providers: [CategoryService, ProductService, CartService],
+  providers: [CategoryService, 
+              ProductService, 
+              CartService, 
+              OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

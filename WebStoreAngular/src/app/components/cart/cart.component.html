@@ -1,26 +1,3 @@
-<!-- <div class="container">
-    <h3>Cart</h3>
-    <ngx-datatable class="material" [rows]="products" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
-        [rowHeight]="50" [sorts]="[{prop: 'name', dir: 'desc'}]">
-        <ngx-datatable-column name="Id">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                {{row.id}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Name">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                {{row.name}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Price">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                {{row.price}}
-            </ng-template>
-        </ngx-datatable-column>
-    </ngx-datatable>
-</div>
-<br> -->
-
 <div class="container">
     <div class="color">
         <div *ngFor="let product of products">

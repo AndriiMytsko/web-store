@@ -15,8 +15,7 @@ export class ShowCategoryComponent implements OnInit {
   constructor(private service: CategoryService,
     private router: Router) { }
 
-
-  categories: Category[]
+  categories: Category[];
 
   ngOnInit() : void{
     this.service.getCategories().subscribe(categories => this.categories = categories);  }    

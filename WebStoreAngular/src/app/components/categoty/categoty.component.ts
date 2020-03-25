@@ -19,18 +19,18 @@ export class CategotyComponent implements OnInit {
     private cartService: CartService,
     private categoryService: CategoryService) { }
 
-    ngOnInit() {
-      this.route.params.subscribe((params: Params) => {
-        this.categoryService.getProductsByCategory(params.id)
-          .subscribe(products => this.products = products);
-      });      
-    }
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.categoryService.getProductsByCategory(params.id)
+        .subscribe(products => this.products = products);
+    });
+  }
 
-    prodDetails(id: number){
-      this.router.navigate(['/product', id]);
-   }
+  prodDetails(id: number) {
+    this.router.navigate(['/product', id]);
+  }
 
-   addToCart(id: number) {
+  addToCart(id: number) {
     this.cartService.addToCart(id);
   }
 }

@@ -5,14 +5,16 @@
       </a>
     </div>
     <div class="col-6">
-      <div *ngFor="let product of products">
+      <div *ngFor="let det of details">
         <div class="row mt-2">
           <div class="col">
-            <p>{{product.name}}</p>
+            <p>Product: {{det.product.name}}</p>
           </div>
           <div class="col">
-            <p>Price: {{product.price}}</p>
+            <p>Price: {{det.product.price}}</p>
           </div>
+          <button class="btn">+</button>
+          <button class="btn">-</button>
         </div>
         <hr>
       </div>

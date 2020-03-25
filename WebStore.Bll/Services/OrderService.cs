@@ -38,7 +38,6 @@ namespace WebStore.Bll.Services
             var details = products.Select(productId => new OrderDetails
             {
                 OrderId = order.Id,
-                ProductId = productId
             });
             await _orderDetailsRepository.CreateAsync(details);
         }

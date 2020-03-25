@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { OrderDetails } from '../models/orderdetails-model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +9,13 @@ import { HttpClient } from '@angular/common/http';
 export class OrderService {
 
   constructor(private http: HttpClient) { }
-
   readonly apiUrl = "http://localhost:63624/api/orders";
 
-  create(ids: number[]){
-    let idsQuery = ids.map(x => `ids=${x}`).join('&');
-    this.http.post(this.apiUrl, `?${idsQuery}`)
-      .subscribe();
+  create(details: OrderDetails[]){
+    this.http.post(this.apiUrl, details);
   }
 
+  getOrder(id: number): Observable<OrderDetails[]> {
+    return this.http.get<OrderDetails[]>(this.apiUrl + '/' + id);
+  }
 }

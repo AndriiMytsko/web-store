@@ -15,7 +15,7 @@ export class TopProductsComponent implements OnInit {
 
   constructor(
     private service: ProductService,
-    public cartService: CartService,
+    private cartService: CartService,
     private router: Router) { }
 
 

@@ -16,9 +16,8 @@ namespace WebStore.Bll.Services
         private readonly IOrderRepository _orderRepository;
         private readonly IOrderDetailsRepository _orderDetailsRepository;
 
-        public OrderService(
-            IMapper mapper,
-            IOrderRepository orderRepository,
+        public OrderService(IMapper mapper,
+                    IOrderRepository orderRepository,
             IOrderDetailsRepository orderDetailsRepository)
         {
             _mapper = mapper;
@@ -26,19 +25,16 @@ namespace WebStore.Bll.Services
             _orderDetailsRepository = orderDetailsRepository;
         }
 
-        public async Task CreateAsync(IEnumerable<int> products)
+        public async Task CreateAsync(IEnumerable<OrderDetailsDto> orderDetails)
         {
-            var order = new Order
-            {
-                CustomerId = 1
-            };
+            var order = new Order { CustomerId = 1 };
+            var orderId = await _orderRepository.CreateAsync(order);
 
-            await _orderRepository.CreateAsync(order);
-
-            var details = products.Select(productId => new OrderDetails
+            var details = _mapper.Map<IEnumerable<OrderDetails>>(orderDetails);
+            foreach (var det in details)
             {
-                OrderId = order.Id,
-            });
+                det.OrderId = orderId;
+            }
             await _orderDetailsRepository.CreateAsync(details);
         }
 

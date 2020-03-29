@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/models/product-model';
 import { OrderService } from 'src/app/services/order.service';
-import { OrderDetails } from 'src/app/models/orderdetails-model';
+import { OrderDetails } from "src/app/models/orderdetails-model";
 
 @Component({
   selector: 'app-order',
@@ -29,6 +29,6 @@ export class OrderComponent implements OnInit {
   }
 
   create() {
-    this.orderService.create(this.details);
+    this.orderService.create(this.details).subscribe(details => this.details);
   }
 }

@@ -21,12 +21,14 @@ namespace WebStore.Dal.Repositories
             _connection = conn;
         }
 
-        public async Task CreateAsync(Order order)
+        public async Task<int> CreateAsync(Order order)
         {
             using (IDbConnection db = GetConnection())
             {
                 var sqlQuery = SqlCommandOrder.CreateOrder;
-                await db.ExecuteAsync(sqlQuery, order);
+                int orderId = db.Query<int>(sqlQuery, order).Single();
+
+                return orderId;
             }
         }
 

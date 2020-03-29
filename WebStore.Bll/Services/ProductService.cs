@@ -1,10 +1,15 @@
 ﻿using AutoMapper;
-using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using WebStore.Bll.DTOs;
 using WebStore.Bll.Services.Interfaces;
 using WebStore.Dal.Entities;
 using WebStore.Dal.Repositories.Interfaces;
+using System.Collections.Generic;
+using System.Data;
+using Newtonsoft.Json;
+using OfficeOpenXml;
+using WebStore.Dal.Providers;
 
 namespace WebStore.Bll.Services
 {
@@ -13,18 +18,20 @@ namespace WebStore.Bll.Services
     {
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
+        private readonly IFileProvider _fileProvider;
 
-        public ProductService(
-            IMapper mapper,
-            IProductRepository productRepository)
+        public ProductService(IMapper mapper,
+                              IProductRepository productRepository,
+                              IFileProvider fileProvider)
         {
             _mapper = mapper;
             _productRepository = productRepository;
+            _fileProvider = fileProvider;
         }
 
         public async Task CreateAsync(ProductDto dto)
         {
-            var entity = _mapper.Map<Product>(dto); 
+            var entity = _mapper.Map<Product>(dto);
 
             await _productRepository.CreateAsync(entity);
         }
@@ -82,6 +89,13 @@ namespace WebStore.Bll.Services
             }
 
             await _productRepository.DeleteAsync(Id);
+        }
+
+        public async Task WriteToExcel(string path)
+        {
+            var products = await _productRepository.GetAllAsync();
+
+            _fileProvider.WriteToExel(products, path); ;
         }
     }
 }

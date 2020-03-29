@@ -29,8 +29,10 @@ export class CartService {
 
   public getProducts(): Observable<Product[]> {
     let productsIds = localStorage.getItem('productIds');
-    let ids = productsIds.split(',').map(id => Number(id));
-    
-    return this.productService.getProductsByIds(ids);
+    if(productsIds != null)
+    {
+      let ids = productsIds.split(',').map(id => Number(id));
+      return this.productService.getProductsByIds(ids);
+    }
   }
 }

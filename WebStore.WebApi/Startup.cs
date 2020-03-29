@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using WebStore.Dal.Configs;
 using WebStore.WebApi.Infrastructure.ServiceExtensions;
@@ -11,23 +12,23 @@ namespace WebStore.WebApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IHostEnvironment _env;
+        public Startup(IConfiguration configuration, IHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-
             services
                 .AddBll()
-                .AddDal(Configuration.GetSection("ConnectionStrings").Get<ConnectionSettings>())
+                .AddDal(Configuration.GetSection("ConnectionStrings").Get<ConnectionSettings>(),  _env)
                 .AddMapper()
-                .AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                .AddMvcCore();
 
             services.AddSwaggerGen(c =>
             {
@@ -36,8 +37,7 @@ namespace WebStore.WebApi
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -47,8 +47,16 @@ namespace WebStore.WebApi
             {
                 app.UseHsts();
             }
-
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200"));
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+              );
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSwagger();
@@ -57,7 +65,6 @@ namespace WebStore.WebApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             app.UseHttpsRedirection();
-            app.UseMvc();
         }
     }
 }

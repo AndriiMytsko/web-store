@@ -1,17 +1,21 @@
 <div class="container">
   <div class="row color">
     <div class="col-6 ">
-      <a id="buy" class="btn" (click)="create()">Make an order
+      <a id="buy" href="/" class="btn" (click)="create()">
+        Make an order
       </a>
     </div>
     <div class="col-6">
       <div *ngFor="let det of details">
         <div class="row mt-2">
           <div class="col">
-            <p>Product: {{det.product.name}}</p>
+            <p>{{det.product.name}}</p>
           </div>
           <div class="col">
-            <p>Price: {{det.product.price}}</p>
+            <p>price: {{det.product.price}}</p>
+          </div>
+          <div class="col">
+            <p>Quantity: {{det.quantity}}</p>
           </div>
           <button class="btn">+</button>
           <button class="btn">-</button>

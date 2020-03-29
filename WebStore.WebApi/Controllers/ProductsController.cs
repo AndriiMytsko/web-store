@@ -31,6 +31,12 @@ namespace WebStore.WebApi.Controllers
         //    return await _productService.GetAllAsync();
         //}
 
+        [HttpGet]
+        public async Task WriteToExel()
+        {
+            await _productService.WriteToExcel(@"C:\Users\Andrii\Downloads");
+        }
+
         [HttpGet("{id}")] // productWithCategory
         public async Task<ProductDto> Get(int id)
         {

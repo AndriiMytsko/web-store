@@ -6,5 +6,6 @@ export class OrderDetails {
 
     constructor(product: Product) {
         this.product = product;
+        this.quantity = 1;
     }
 }

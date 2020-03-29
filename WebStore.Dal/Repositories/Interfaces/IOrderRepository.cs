@@ -6,7 +6,7 @@ namespace WebStore.Dal.Repositories.Interfaces
 {
     public interface IOrderRepository
     {
-        Task CreateAsync(Order order);
+        Task<int> CreateAsync(Order order);
         Task DeleteAsync(int id);
         Task<Order> GetAsync(int id);
         Task<IEnumerable<OrderDetails>> GetOrderWithProductsAsync(int id);

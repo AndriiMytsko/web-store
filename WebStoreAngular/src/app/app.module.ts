@@ -1,6 +1,6 @@
 import * as platformBrowser from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {MatTabsModule} from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -82,7 +82,8 @@ import { OrderService } from './services/order.service';
     MatCardModule,
     FlexLayoutModule,
     HttpClientModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MatTabsModule
   ],
   providers: [CategoryService, 
               ProductService, 

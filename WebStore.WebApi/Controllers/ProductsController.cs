@@ -31,7 +31,7 @@ namespace WebStore.WebApi.Controllers
         //    return await _productService.GetAllAsync();
         //}
 
-        [HttpGet]
+        [HttpPost("create/xml")]
         public async Task WriteToExel()
         {
             await _productService.WriteToExcel(@"C:\Users\Andrii\Downloads");

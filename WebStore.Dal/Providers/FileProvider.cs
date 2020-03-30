@@ -15,12 +15,16 @@ namespace WebStore.Dal.Providers
         }
         public byte[] GetFile(string fileName)
         {
-            return null;
+            string path = GetFullFilePath(fileName); 
+            byte[] arr = File.ReadAllBytes(path);
+
+            return arr;
         }
 
         public void WriteToExel<T>(T obj, string fileName)
         {
-            DataTable table = (DataTable)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(obj), (typeof(DataTable)));
+            DataTable table = (DataTable)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(obj), 
+                                                                                    (typeof(DataTable)));
             var fullFilePath = GetFullFilePath(fileName);
 
             FileInfo filePath = new FileInfo(fullFilePath);

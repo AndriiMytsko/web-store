@@ -18,9 +18,9 @@ namespace WebStore.WebApi
 {
     public class Startup
     {
-        private readonly IHostEnvironment _env;
+        private readonly IWebHostEnvironment _env;
 
-        public Startup(IConfiguration configuration, IHostEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
             _env = env;

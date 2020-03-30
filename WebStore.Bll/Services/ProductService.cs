@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
-using System.IO;
 using System.Threading.Tasks;
 using WebStore.Bll.DTOs;
 using WebStore.Bll.Services.Interfaces;
 using WebStore.Dal.Entities;
 using WebStore.Dal.Repositories.Interfaces;
 using System.Collections.Generic;
-using System.Data;
-using Newtonsoft.Json;
-using OfficeOpenXml;
 using WebStore.Dal.Providers;
 
 namespace WebStore.Bll.Services
@@ -91,11 +87,11 @@ namespace WebStore.Bll.Services
             await _productRepository.DeleteAsync(Id);
         }
 
-        public async Task WriteToExcel(string path)
+        public async Task WriteToExcel(string fileName)
         {
             var products = await _productRepository.GetAllAsync();
 
-            _fileProvider.WriteToExel(products, path); ;
+            _fileProvider.WriteToExel(products, fileName);
         }
     }
 }

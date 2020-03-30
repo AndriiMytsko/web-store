@@ -24,6 +24,22 @@ namespace WebStore.WebApi.Controllers
             return category;
         }
 
+        [HttpPost("create/xml")]
+        public async Task WriteToExel(string fileName)
+        {
+            await _categoryService.WriteToExcel(fileName);
+        }
+
+        [HttpPost("file")]
+        public FileContentResult GetFile()
+        {
+            var fileName = "Ernest_Kheminguey_Killery.pdf";
+            var arr = _categoryService.GetFile(fileName);
+            string fileType = "application/pdf";
+
+            return File(arr, fileType, fileName);
+        }
+
         [HttpGet]
         public async Task<IEnumerable<CategoryDto>> Get()
         {

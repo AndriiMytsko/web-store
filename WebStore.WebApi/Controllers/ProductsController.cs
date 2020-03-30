@@ -32,9 +32,9 @@ namespace WebStore.WebApi.Controllers
         //}
 
         [HttpPost("create/xml")]
-        public async Task WriteToExel()
+        public async Task WriteToExel(string fileName)
         {
-            await _productService.WriteToExcel(@"C:\Users\Andrii\Downloads");
+            await _productService.WriteToExcel(fileName);
         }
 
         [HttpGet("{id}")] // productWithCategory
@@ -49,7 +49,7 @@ namespace WebStore.WebApi.Controllers
             return await _productService.GetProductsAsync(ids);
         }
 
-        [HttpGet("top-products")]
+        [HttpGet("top")]
         public async Task<IEnumerable<ProductDto>> GetTop()
         {
             const int countTopProducts = 10;

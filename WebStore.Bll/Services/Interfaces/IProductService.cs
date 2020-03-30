@@ -10,7 +10,7 @@ namespace WebStore.Bll.Services.Interfaces
         Task<ProductDto> GetAsync(int id);
         Task<IEnumerable<ProductDto>> GetAllAsync();
         Task<IEnumerable<ProductDto>> GetTopAsync(int count);
-        Task WriteToExcel(string path);
+        Task WriteToExcel(string fileName);
         Task<IEnumerable<ProductDto>> GetProductsAsync(IEnumerable<int> ids);
         Task UpdateAsync(ProductDto dto);
         Task DeleteAsync(int id);

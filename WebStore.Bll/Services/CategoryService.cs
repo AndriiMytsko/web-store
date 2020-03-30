@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebStore.Bll.DTOs;
 using WebStore.Bll.Services.Interfaces;
 using WebStore.Dal.Entities;
+using WebStore.Dal.Providers;
 using WebStore.Dal.Repositories.Interfaces;
 
 namespace WebStore.Bll.Services
@@ -13,13 +15,15 @@ namespace WebStore.Bll.Services
 {
         private readonly IMapper _mapper;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IFileProvider _fileProvider;
 
-        public CategoryService(
-          IMapper mapper,
-          ICategoryRepository categoryRepository)
+        public CategoryService(IMapper mapper,
+                              ICategoryRepository categoryRepository,
+                              IFileProvider fileProvider)
         {
             _mapper = mapper;
             _categoryRepository = categoryRepository;
+            _fileProvider = fileProvider;
         }
 
         public async Task CreateAsync(CategoryDto dto)
@@ -70,6 +74,19 @@ namespace WebStore.Bll.Services
             }
 
             await _categoryRepository.DeleteAsync(id);
+        }
+
+        public async Task WriteToExcel(string fileName)
+        {
+            var categories = await _categoryRepository.GetAllAsync();
+
+            _fileProvider.WriteToExel(categories, fileName);
+        }
+
+        public byte[] GetFile(string fileName)
+        {
+            byte[] arr = _fileProvider.GetFile(fileName);
+            return arr;
         }
     }
 }
